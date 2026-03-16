@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - echo Installing NPM packages...
+      - npm install
+  build:
+    commands:
+      - echo Building Angular app...
+      - npm run build -- --configuration production
+artifacts:
+  files:
+    - dist/testaws/browser/**/*
