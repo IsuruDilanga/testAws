@@ -14,3 +14,4 @@ phases:
 artifacts:
   files:
     - TestAws/target/*.jar
+  discard-paths: yes
