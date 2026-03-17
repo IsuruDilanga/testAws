@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>TestAws</artifactId>
-	<version>0.2.0</version>
+	<version>0.3.0</version>
 	<name>TestAws</name>
 	<description>TEST Project AWS</description>
 	<url/>

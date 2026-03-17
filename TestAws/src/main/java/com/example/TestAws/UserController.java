@@ -1,5 +1,7 @@
 package com.example.TestAws;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
@@ -12,6 +14,8 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/users")
 public class UserController {
+
+    private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
     private final DynamoDBService dynamoDBService = new DynamoDBService();
     private final LocalDBService localDBService = new LocalDBService();
@@ -47,9 +51,10 @@ public class UserController {
     public Map<String, Object> getUsers() throws Exception {
         Map<String, Object> response = new HashMap<>();
         response.put("local", localDBService.fetchUsers());
-
+        log.info("localDBService.fetchUsers() executed");
         try {
             response.put("aws", dynamoDBService.fetchUsers());
+            log.info("dynamoDBService.fetchUsers() executed");
         } catch (Exception e) {
             e.printStackTrace();
             response.put("aws", e.getMessage());
