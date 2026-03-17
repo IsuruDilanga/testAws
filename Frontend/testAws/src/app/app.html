@@ -1,0 +1,63 @@
+<div style="margin:20px">
+  <h2>User Demo</h2>
+
+  <input [(ngModel)]="name" placeholder="Enter name" />
+  <button (click)="addUser()">Add User</button>
+
+  <h3>Local DB Users</h3>
+  <ul>
+    <li *ngFor="let user of localUsers$ | async">
+      {{ user.id }} : {{ user.name }}
+    </li>
+  </ul>
+
+  <h3>AWS DynamoDB Users</h3>
+  <ul>
+    <li *ngFor="let user of awsUsers$ | async">
+      {{ user.id }} : {{ user.name }}
+    </li>
+  </ul>
+</div>
+
+
+<!-- <div style="margin:20px">
+  <h2>User Demo</h2>
+
+  <input [(ngModel)]="name" placeholder="Enter name" />
+  <button (click)="addUser()">Add User</button>
+
+  <h3>Local DB Users</h3>
+  <ul>
+    <li *ngFor="let user of (localUsers$ | async)?.local">
+      {{ user }}
+    </li>
+  </ul>
+
+  <h3>AWS DynamoDB Users</h3>
+  <ul>
+    <li *ngFor="let user of (awsUsers$ | async)?.aws">
+      {{ user.id }} : {{ user.name }}
+    </li>
+  </ul>
+</div>
+
+<div style="margin:20px">
+  <h2>User Demo</h2>
+
+  <input [(ngModel)]="name" placeholder="Enter name" />
+  <button (click)="addUser()">Add User</button>
+
+  <h3>Local DB Users</h3>
+  <ul>
+    <li *ngFor="let user of localUsers">
+      {{ user.id }} : {{ user.name }}
+    </li>
+  </ul>
+
+  <h3>AWS DynamoDB Users</h3>
+  <ul>
+    <li *ngFor="let user of awsUsers">
+      {{ user.id }} : {{ user.name }}
+    </li>
+  </ul>
+</div> --> 
