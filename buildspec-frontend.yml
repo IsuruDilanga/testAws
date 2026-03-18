@@ -1,23 +1,17 @@
 version: 0.2
-
 phases:
   install:
     runtime-versions:
-      nodejs: 24   # REQUIRED for Angular 21
+      nodejs: 18
     commands:
       - npm install -g @angular/cli
-
   build:
     commands:
       - cd Frontend/testAws
       - npm install
       - ng build --configuration production
-
-  post_build:
-    commands:
-      - aws s3 sync / s3://testaws-frontend --delete
-
+      - cp -r dist/testAws/browser/* ../backend/src/main/resources/static/
 artifacts:
   files:
-    - Frontend/testAws/dist/testAws/browser/**/*
+    - backend/target/*.jar
   discard-paths: yes
