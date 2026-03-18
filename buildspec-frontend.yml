@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: 24
     commands:
       - echo "Installing Angular CLI"
       - npm install -g @angular/cli
