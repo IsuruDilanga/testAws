@@ -28,4 +28,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: Frontend/testAws/dist/testAws
+  base-directory: Frontend/testAws/dist/testAws/browser
