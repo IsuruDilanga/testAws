@@ -28,7 +28,7 @@ phases:
       - echo "Invalidating CloudFront cache for index.html..."
       - aws cloudfront create-invalidation \
           --distribution-id E80X0QKNISHQ9 \
-          --paths "/index.html"
+          --paths "/*"
       - echo "CloudFront invalidation requested for index.html."
 
 artifacts:
