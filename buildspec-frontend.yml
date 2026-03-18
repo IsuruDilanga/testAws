@@ -7,6 +7,7 @@ phases:
     commands:
       - echo "Installing Angular CLI..."
       - npm install -g @angular/cli
+      - pip install --upgrade awscli  # optional, ensure AWS CLI is up-to-date
 
   pre_build:
     commands:
@@ -24,6 +25,11 @@ phases:
       - echo "Syncing build to S3..."
       - aws s3 sync dist/testAws/browser/ s3://testaws-frontend --delete
       - echo "Deployment completed!"
+      - echo "Invalidating CloudFront cache for index.html..."
+      - aws cloudfront create-invalidation \
+          --distribution-id E80X0QKNISHQ9 \
+          --paths "/index.html"
+      - echo "CloudFront invalidation requested for index.html."
 
 artifacts:
   files:
