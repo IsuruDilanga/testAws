@@ -49,6 +49,7 @@ public class UserController {
 
     @GetMapping
     public Map<String, Object> getUsers() throws Exception {
+        log.info("LN 52 getUsers() executed");
         Map<String, Object> response = new HashMap<>();
         response.put("local", localDBService.fetchUsers());
         log.info("localDBService.fetchUsers() executed");
