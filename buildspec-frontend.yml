@@ -21,10 +21,10 @@ phases:
 
   post_build:
     commands:
-      - cp -r dist/testAws/browser/* dist/testAws/
-      - aws s3 sync dist/testAws/ s3://testaws-frontend --delete
+      - echo "Syncing build to S3..."
+      - aws s3 sync dist/testAws/browser/ s3://testaws-frontend --delete
       - echo "Deployment completed!"
-      
+
 artifacts:
   files:
     - '**/*'
