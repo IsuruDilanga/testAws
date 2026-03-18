@@ -5,21 +5,26 @@ phases:
     runtime-versions:
       nodejs: 20
     commands:
+      - echo "Installing Angular CLI..."
       - npm install -g @angular/cli
 
   pre_build:
     commands:
+      - echo "Installing project dependencies..."
       - cd Frontend/testAws
       - npm install
 
   build:
     commands:
+      - echo "Building Angular app..."
       - ng build --configuration production
 
   post_build:
     commands:
-      - echo "Build completed on $(date)"
-
+      - echo "Syncing build output to S3..."
+      - aws s3 sync dist/testAws/ s3://testaws-frontend --delete
+      - echo "Deployment completed!"
+      
 artifacts:
   files:
     - '**/*'
