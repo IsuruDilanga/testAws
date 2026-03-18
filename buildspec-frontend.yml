@@ -26,9 +26,7 @@ phases:
       - aws s3 sync dist/testAws/browser/ s3://testaws-frontend --delete
       - echo "Deployment completed!"
       - echo "Invalidating CloudFront cache for index.html..."
-      - aws cloudfront create-invalidation \
-          --distribution-id E80X0QKNISHQ9 \
-          --paths "/*"
+      - aws cloudfront create-invalidation --distribution-id E80X0QKNISHQ9 --paths "/*"
       - echo "CloudFront invalidation requested for index.html."
 
 artifacts:
