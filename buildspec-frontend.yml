@@ -5,12 +5,10 @@ phases:
     runtime-versions:
       nodejs: 24
     commands:
-      - echo "Installing Angular CLI"
       - npm install -g @angular/cli
 
   build:
     commands:
-      - echo "Entering frontend folder"
       - cd Frontend/testAws
       - npm install
       - ng build --configuration production
