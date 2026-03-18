@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 20   # REQUIRED for Angular 21
+      nodejs: 24   # REQUIRED for Angular 21
     commands:
       - npm install -g @angular/cli
 
@@ -15,7 +15,7 @@ phases:
 
   post_build:
     commands:
-      - aws s3 sync dist/testAws/browser/ s3://testaws-frontend --delete
+      - aws s3 sync / s3://testaws-frontend --delete
 
 artifacts:
   files:
