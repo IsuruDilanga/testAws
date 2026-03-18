@@ -22,7 +22,7 @@ phases:
   post_build:
     commands:
       - echo "Syncing build output to S3..."
-      - aws s3 sync dist/testAws/ s3://testaws-frontend --delete
+      - aws s3 sync dist/testAws/browser/ s3://testaws-frontend --delete
       - echo "Deployment completed!"
       
 artifacts:
