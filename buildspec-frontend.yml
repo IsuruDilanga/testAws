@@ -1,17 +1,21 @@
 version: 0.2
+
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: 20  
     commands:
       - npm install -g @angular/cli
-  build:
+
+  pre_build:
     commands:
       - cd Frontend/testAws
       - npm install
+
+  build:
+    commands:
       - ng build --configuration production
-      - cp -r dist/testAws/browser/* ../backend/src/main/resources/static/
-artifacts:
-  files:
-    - backend/target/*.jar
-  discard-paths: yes
+
+  post_build:
+    commands:
+      - aws s3 sync . s3://testaws-frontend --delete
